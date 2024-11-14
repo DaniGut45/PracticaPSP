@@ -1,0 +1,19 @@
+Preguntas de Reflexión (para cada parte)
+¿Qué ventajas y desventajas tiene la ejecución de programas de manera síncrona versus asíncrona?
+    Ventajas:
+    La ejecución síncrona es más fácil de seguir, ya que ejecuta el código línea a línea sin esperar a nada y
+    una vez llega a la última línea de código termina.
+    No es necesario gestionar hilos porque el programa se ejecuta de manera secuencial sin esperar a nada.
+    Desventaja:
+    Se bloquea el proceso principal.
+    Si la tarea por la que se está esperando tarda demasiado en cerrarse, puede ser ineficiente.
+
+¿Por qué es importante manejar las excepciones al trabajar con procesos?
+    Fallos inesperados en la ejecución.(Fallos de red...).
+    Si un proceso se queda esperando por un fallo, tener una excepción hace que se eviten bloqueos en el sistema
+
+¿Qué tipo de problemas se pueden presentar al comunicarse entre procesos? ¿Cómo los has solucionado?
+    Problemas en sincronización, por ejemplo si tienes 2 procesos y 1 quiere leer de otro, pero el 2º todavía no ha escrito
+    tienes un problema. Se soluciona con las tuberías.
+    Otro problema de sincronización puede ser no controlar el estado en el que se encuentra cada proceso.
+    Esto se soluciona con por ejemplo (os.wait) y asi garantizas que los procesos están sincronizados.
