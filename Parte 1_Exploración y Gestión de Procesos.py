@@ -1,6 +1,6 @@
 import psutil
 
-# Función para listar los procesos activos
+#Función para listar los procesos activos
 def listar_procesos(palabra_clave=""):
     procesos_encontrados = []
     print(f"\nProcesos activos (filtrando por: '{palabra_clave}'):")
@@ -9,15 +9,15 @@ def listar_procesos(palabra_clave=""):
         try:
             nombre = proc.info['name']
             pid = proc.info['pid']
-            memoria = proc.info['memory_info'].rss / (1024 * 1024)  # Memoria en MB
-            if palabra_clave.lower() in nombre.lower():  # Filtrar por palabra clave
+            memoria = proc.info['memory_info'].rss / (1024 * 1024)  #Esto pone la memoria en MB para que por pantalla salga bonito
+            if palabra_clave.lower() in nombre.lower():
                 procesos_encontrados.append({
                     'nombre': nombre,
                     'pid': pid,
                     'memoria': memoria
                 })
         except (psutil.NoSuchProcess, psutil.AccessDenied, psutil.ZombieProcess):
-            pass  # Si no se puede acceder al proceso, lo ignoramos
+            pass
 
     if not procesos_encontrados:
         print("No se encontraron procesos")
@@ -27,7 +27,7 @@ def listar_procesos(palabra_clave=""):
 
     return procesos_encontrados
 
-# Función para finalizar un proceso
+#Función para finalizar un proceso
 def finalizar_proceso(pid):
     try:
         proc = psutil.Process(pid)

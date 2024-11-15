@@ -2,7 +2,7 @@ import subprocess
 import time
 
 def ejecutar_sincrono():
-    #Ejecutamos Notepad de forma síncrona (bloqueante), esperando a que se cierre.
+    #Ejecutamos Notepad de forma síncrona (bloqueante). El programa espera a que se cierre.
     print("Ejecutando Notepad de forma síncrona...")
     start_time = time.time()
 
@@ -13,15 +13,14 @@ def ejecutar_sincrono():
     return end_time - start_time  #Calculamos el tiempo desde que se abre hasta que se cierra
 
 def ejecutar_asincrono():
-    #Ejecutamos notepad de forma asíncrona (no bloqueante), sin esperar a que se cierre.
+    #Ejecutamos notepad de forma asíncrona (no bloqueante), el programa no espera a que se cierre.
     print("Ejecutando Notepad de forma asíncrona...")
     start_time = time.time()
 
-    #Ejecutamos Notepad
     proceso = subprocess.Popen(["notepad.exe"])
 
     end_time = time.time()
-    return end_time - start_time  #Calculamos el tiempo que va ser menor porque no espera a que el notepad se cierre
+    return end_time - start_time  #Calculamos el tiempo que va a ser menor porque no espera a que el notepad se cierre
 
 def main():
     print("Elige el tipo de ejecución:")
